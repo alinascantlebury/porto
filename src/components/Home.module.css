@@ -1,0 +1,175 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("../fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.home {
+  font-family: MyFont;
+  background-color: #FFFFF3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 57px);
+}
+
+.left {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 0.5px solid var(--color-border);
+}
+
+.title {
+  font-family: MyFont;
+  font-size: 52px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.role {
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.bio {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-muted);
+  max-width: 380px;
+  margin-top: 2rem;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact {
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+.contact a {
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+
+.contact a:hover {
+  color: var(--color-text);
+}
+
+.right {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+  align-content: start;
+}
+
+.card {
+  font-family: MyFont;
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+}
+
+.card:hover {
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
+}
+
+.cardEmpty {
+  border-style: dashed;
+  cursor: default;
+  opacity: 0.45;
+}
+
+.cardEmpty:hover {
+  background: transparent;
+  border-color: var(--color-border);
+}
+
+.cardLabel {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.cardDesc {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+.cardMeta {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border: 0.5px solid var(--color-border);
+  border-radius: 20px;
+  color: var(--color-muted);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+  .home {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    border-right: none;
+    border-bottom: 0.5px solid var(--color-border);
+    min-height: auto;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .right {
+    grid-template-columns: 1fr;
+  }
+}
