@@ -4,8 +4,13 @@ import { projects } from '../data';
 
 export default function Home({ setPage, setProject }) {
   function openProject(id) {
-    setProject(id);
-    setPage('case');
+    const p = projects.find(proj => proj.id === id);
+    if (p.externalUrl) {
+      window.open(p.externalUrl, '_blank');
+    } else {
+      setProject(id);
+      setPage('case');
+    }
   }
 
   return (
@@ -47,13 +52,18 @@ export default function Home({ setPage, setProject }) {
             className={styles.card}
             onClick={() => openProject(p.id)}
           >
-            <div className={styles.cardImageWrapper}>
-              <img
-                src={p.image}
-                alt={p.title}
-                className={styles.cardImage}
-              />
-            </div>
+            {p.image && (
+              <div className={styles.cardImageWrapper}>
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className={styles.cardImage}
+                />
+              </div>
+            )}
+            {p.externalUrl && (
+              <span className={styles.researchArrow}>↗</span>
+            )}
             <div>
               <p className={styles.cardMeta}>{p.meta}</p>
               <h2 className={styles.cardTitle}>{p.title}</h2>

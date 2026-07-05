@@ -9,7 +9,11 @@ import swipe_2 from './images/swipe-middle.png';
 import swipe_3 from './images/swipe-middle-1.png';
 import libraryImg from './images/library-1.png';
 
+import commonsVideo1 from './images/one.mp4';
+import commonsVideo2 from './images/two.mp4';
+import commonsImg from './images/commons.png';
 export const projects = [
+  
   {
     id: 'nala',
 
@@ -185,5 +189,66 @@ export const projects = [
         ]
       }
     ]
+  },
+  {
+    id: 'the-commons',
+    title: 'The Commons',
+    meta: 'University of San Francisco — Spring 2026',
+    desc: 'A household chore app designed for people who want a little whimsy in the parts of life everyone wishes weren\'t there.',
+    image: commonsImg,
+    tags: ['Figma', 'UI/UX', 'Prototyping'],
+  
+    role: 'UI/UX Design',
+    timeline: 'Jan 2026 – Mar 2026',
+    team: 'me :)',
+  
+    hook: 'The tragedy of the commons — everyone depends on it, nobody tends it.',
+  
+    sections: [
+      {
+        label: 'overview',
+        content:
+          'The Commons is a household chore and nudge app built for roommates who want to stay on top of shared responsibilities without the guilt or the group chat drama. It filters your to-do list by energy, space, or time — and lets you send medieval-style town crier announcements when someone needs a nudge.'
+      },
+      {
+        label: 'problem',
+        content:
+          'Most chore apps rely on guilt and logging. They are generic, joyless, and nobody actually uses them. The Commons was designed around the idea that shared living is a commons — everyone depends on it, nobody tends it — and that a little whimsy goes a long way toward making people actually want to show up.'
+      },
+      {
+        label: 'approach',
+        bullets: [
+          {
+            bold: 'Filter by energy, space, or time: ',
+            text: 'Instead of a flat to-do list, users filter chores by what they actually have available right now.'
+          },
+          {
+            bold: 'Medieval aesthetic: ',
+            text: 'Town crier announcements, crystal ball prompts, and hourglass timers replace sterile UI with something people actually enjoy using.'
+          },
+          {
+            bold: 'Nudge flow: ',
+            text: 'Instead of passive-aggressive group chats, users send structured announcements that are funny and firm at the same time.'
+          }
+        ]
+      },
+      {
+        label: 'flow 1 — i have 5 minutes',
+        video: commonsVideo1
+      },
+      {
+        label: 'flow 2 — i\'ve taken out the trash 3x in a row',
+        video: commonsVideo2
+      }
+    ]
+  },   
+  {
+    id: 'flock-by-block',
+    title: 'Flock by Block',
+    meta: 'University of San Francisco — Spring 2026',
+    desc: 'A scrollytelling data visualization of SF bird ecology using 600,000+ eBird observations. Crows follow bins. Parrots follow parks. Hawks follow the coast.',
+    image: null,
+    tags: ['D3.js', 'Data Viz', 'Scrollytelling'],
+    externalUrl: 'https://alinascantlebury.github.io/birdie/',
   }
 ];

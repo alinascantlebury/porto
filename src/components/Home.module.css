@@ -8,7 +8,8 @@
   font-family: MyFont;
   background-color: #FFFFF3;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40% 60%;
+  align-items: stretch;
   min-height: calc(100vh - 57px);
 }
 
@@ -18,6 +19,10 @@
   flex-direction: column;
   justify-content: space-between;
   border-right: 0.5px solid var(--color-border);
+  position: sticky;
+  top: 57px;
+  align-self: start;
+  height: calc(100vh - 57px);
 }
 
 .title {
@@ -73,7 +78,7 @@
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  grid-auto-rows: min-content;
   gap: 1rem;
   align-content: start;
 }
@@ -88,7 +93,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 170px;
+  min-height: 270px;
 }
 
 .card:hover {
@@ -120,7 +125,24 @@
   line-height: 1.2;
   font-weight: 400;
 }
+.cardImageWrapper {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .cardDesc {
   font-size: 11px;
   color: var(--color-muted);
@@ -163,6 +185,9 @@
     min-height: auto;
     padding: 2rem;
     gap: 2rem;
+    position: static;
+    height: auto;
+    overflow-y: visible;
   }
 
   .title {
@@ -171,6 +196,8 @@
 
   .right {
     grid-template-columns: 1fr;
+    height: auto;
+    overflow-y: visible;
   }
 }
 .research {

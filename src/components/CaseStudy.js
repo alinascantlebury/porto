@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './CaseStudy.module.css';
 import { projects } from '../data';
 
-
-
 export default function CaseStudy({ projectId, setPage }) {
   const project = projects.find((p) => p.id === projectId);
   if (!project) return null;
@@ -72,6 +70,19 @@ export default function CaseStudy({ projectId, setPage }) {
               ))}
             </div>
           )}
+
+        {section.video && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+            <video
+              src={section.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: '45%', borderRadius: '40px' }}
+            />
+          </div>
+        )}
 
           {section.recognition && (
             <div className={styles.recognitionList}>
