@@ -34,7 +34,8 @@ export default function Home({ setPage, setProject }) {
     <div className={styles.home}>
       <div className={styles.left}>
         <div>
-          <h1 className={styles.title}>(full stack engineer)</h1>
+          <h1 className={styles.title}> Alina Scantlebury </h1>
+
           <p className={styles.role}>cs + ux/ui · university of san francisco · 2026</p>
           <p className={styles.bio}>
             : a product-minded engineer who builds consumer apps with a strong focus on user behavior, personalization, and conversion.
