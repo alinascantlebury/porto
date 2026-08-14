@@ -9,7 +9,7 @@ import swipe_2 from './images/swipe-middle.png';
 import swipe_3 from './images/swipe-middle-1.png';
 import libraryImg from './images/library-1.png';
 
-import nalaDemoVideo from './images/nala-demo.mov';
+import nalaDemoVideo from './images/nala.mp4';
 import nalaHome1 from './images/home-1.jpeg';
 import nalaHome from './images/home.jpeg';
 

@@ -13,8 +13,8 @@ export default function Home({ setPage, setProject }) {
       window.open(p.externalUrl, '_blank');
       return;
     }
-    setActive(id);
-  }
+    setProject(id);
+    setPage('case');  }
 
   function closeProject() {
     setActive(null);
