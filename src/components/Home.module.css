@@ -200,8 +200,18 @@
     overflow-y: visible;
   }
 }
-.research {
+
+/* wraps published-research + mini-games (and any future link block);
+   controls the spacing between them in one place */
+.researchGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-top: 2rem;
+}
+
+.research {
+  margin-top: 0;
 }
 
 .researchLabel {
@@ -254,4 +264,218 @@
 
 .researchLink:hover .researchArrow {
   color: var(--color-text);
+}
+
+/* ---- project detail panel (in-place, right column) ---- */
+
+.detail {
+  grid-column: 1 / -1;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detailBack {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-muted);
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.detailBack:hover {
+  color: var(--color-text);
+}
+
+.detailHeader {
+  margin-bottom: 2rem;
+}
+
+.detailMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detailRoleBadge {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.detailTitle {
+  font-family: MyFont;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.detailHook {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-muted);
+  border-left: 2px solid var(--color-border-strong);
+  padding-left: 1rem;
+}
+
+.detailMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.detailMetaItem label {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.detailMetaItem span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.detailSection {
+  margin-bottom: 2rem;
+}
+
+.detailSectionLabel {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.detailBody {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--color-muted);
+}
+
+.detailBullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.detailBullets li {
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.7;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.detailBullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-border-strong);
+  font-size: 11px;
+}
+
+.detailBullets li strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.detailScreens {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1.5rem 0.25rem;
+  justify-items: center;
+}
+
+.detailScreen {
+  width: 150px;
+  height: 270px;
+  border-radius: 20px;
+  border: 0.5px solid var(--color-border);
+  background: var(--color-bg);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.detailScreen:hover {
+  transform: scale(1.05) translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.detailScreenImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.detailHint {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+
+.lightboxContent {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 24px;
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .detailTitle {
+    font-size: 26px;
+  }
+  .detailMetaGrid {
+    grid-template-columns: 1fr;
+  }
+  .detailScreen {
+    width: 120px;
+    height: 220px;
+  }
+  .detailScreens {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -9,6 +9,10 @@ import swipe_2 from './images/swipe-middle.png';
 import swipe_3 from './images/swipe-middle-1.png';
 import libraryImg from './images/library-1.png';
 
+import nalaDemoVideo from './images/nala-demo.mov';
+import nalaHome1 from './images/home-1.jpeg';
+import nalaHome from './images/home.jpeg';
+
 import commonsVideo1 from './images/one.mp4';
 import commonsVideo2 from './images/two.mp4';
 import commonsImg from './images/commons.png';
@@ -79,8 +83,13 @@ export const projects = [
       },
 
       {
+        label: 'demo',
+        video: nalaDemoVideo
+      },
+
+      {
         label: 'screens',
-        screens: [welcomeImg, signupImg, detailsImg, howImg, consentImg]
+        screens: [welcomeImg, signupImg, detailsImg, howImg, consentImg, nalaHome1, nalaHome]
       },
 
       {

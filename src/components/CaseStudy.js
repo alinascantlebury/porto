@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './CaseStudy.module.css';
 import { projects } from '../data';
 
 export default function CaseStudy({ projectId, setPage }) {
   const project = projects.find((p) => p.id === projectId);
+  const [lightbox, setLightbox] = useState(null); // { type: 'image' | 'video', src }
   if (!project) return null;
 
   return (
@@ -62,27 +63,42 @@ export default function CaseStudy({ projectId, setPage }) {
           )}
 
           {section.screens && (
-            <div className={styles.screens}>
-              {section.screens.map((src, n) => (
-                <div key={n} className={styles.screen}>
-                  <img src={src} alt={`screen ${n + 1}`} className={styles.screenImg} />
-                </div>
-              ))}
-            </div>
+            <>
+              <p className={styles.hint}>click to enlarge</p>
+              <div className={styles.screens}>
+                {section.screens.map((src, n) => (
+                  <div
+                    key={n}
+                    className={styles.screen}
+                    onClick={() => setLightbox({ type: 'image', src })}
+                  >
+                    <img src={src} alt={`screen ${n + 1}`} className={styles.screenImg} />
+                  </div>
+                ))}
+              </div>
+            </>
           )}
 
-        {section.video && (
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-            <video
-              src={section.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{ width: '45%', borderRadius: '40px' }}
-            />
-          </div>
-        )}
+          {section.video && (
+            <>
+              <p className={styles.hint}>click to enlarge</p>
+              <div className={styles.screens}>
+                <div
+                  className={styles.screen}
+                  onClick={() => setLightbox({ type: 'video', src: section.video })}
+                >
+                  <video
+                    src={section.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className={styles.screenImg}
+                  />
+                </div>
+              </div>
+            </>
+          )}
 
           {section.recognition && (
             <div className={styles.recognitionList}>
@@ -99,6 +115,29 @@ export default function CaseStudy({ projectId, setPage }) {
           )}
         </div>
       ))}
+
+      {lightbox && (
+        <div className={styles.lightboxOverlay} onClick={() => setLightbox(null)}>
+          {lightbox.type === 'video' ? (
+            <video
+              src={lightbox.src}
+              controls
+              autoPlay
+              loop
+              muted
+              className={styles.lightboxContent}
+              onClick={(e) => e.stopPropagation()}
+            />
+          ) : (
+            <img
+              src={lightbox.src}
+              alt="expanded screen"
+              className={styles.lightboxContent}
+              onClick={(e) => e.stopPropagation()}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 }

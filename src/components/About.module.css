@@ -11,6 +11,33 @@
   margin-bottom: 2.5rem;
 }
 
+.bioRow {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.photo {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.5px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.bioText {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 500px) {
+  .bioRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .section {
   margin-bottom: 2.5rem;
 }
