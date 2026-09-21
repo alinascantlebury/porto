@@ -1,0 +1,601 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("../fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.home {
+  font-family: MyFont;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: stretch;
+  min-height: calc(100vh - 57px);
+}
+
+.left {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 0.5px solid var(--color-border);
+  position: sticky;
+  top: 57px;
+  align-self: start;
+  height: calc(100vh - 57px);
+}
+
+.title {
+  font-family: MyFont;
+  font-size: 52px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.role {
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.bio {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-muted);
+  max-width: 380px;
+  margin-top: 2rem;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact {
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+.contact a {
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+
+.contact a:hover {
+  color: var(--color-text);
+}
+
+.right {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  gap: 1rem;
+  align-content: start;
+  scroll-margin-top: 80px;
+}
+
+.card {
+  font-family: MyFont;
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 270px;
+}
+
+.card:hover {
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
+}
+
+.cardEmpty {
+  border-style: dashed;
+  cursor: default;
+  opacity: 0.45;
+}
+
+.cardEmpty:hover {
+  background: transparent;
+  border-color: var(--color-border);
+}
+
+.cardLabel {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.cardImageWrapper {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cardDesc {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+.cardMeta {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border: 0.5px solid var(--color-border);
+  border-radius: 20px;
+  color: var(--color-muted);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+  .home {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    border-right: none;
+    border-bottom: 0.5px solid var(--color-border);
+    min-height: auto;
+    padding: 2rem;
+    gap: 2rem;
+    position: static;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .right {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow-y: visible;
+  }
+}
+
+/* wraps published-research + mini-games (and any future link block);
+   controls the spacing between them in one place */
+.researchGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.research {
+  margin-top: 0;
+}
+
+.researchLabel {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.researchLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.researchLink:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+.researchTitle {
+  font-size: 13px;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.researchMeta {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+.researchArrow {
+  position: absolute;
+  top: 0.85rem;
+  right: 1rem;
+  font-size: 13px;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+
+.researchLink:hover .researchArrow {
+  color: var(--color-text);
+}
+
+/* ---- sections below the hero: research, about, play ---- */
+
+.belowHero {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.belowSpacer {
+  border-right: 0.5px solid var(--color-border);
+}
+
+.belowContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.pageSection {
+  scroll-margin-top: 80px;
+}
+
+.sectionEyebrow {
+  font-family: var(--font-serif, MyFont);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+.aboutPhoto {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.5px solid var(--color-border);
+  display: block;
+  margin: 0 auto 1.25rem;
+}
+
+.aboutMeta {
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.aboutBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.aboutBody p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.playIllustration {
+  display: block;
+  max-width: 320px;
+  margin: 0 auto 2rem;
+  rotate: 90deg;
+}
+
+.playCard {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-muted);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.playCard:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+@media (max-width: 768px) {
+  .belowHero {
+    grid-template-columns: 1fr;
+  }
+
+  .belowSpacer {
+    display: none;
+  }
+}
+
+/* ---- project detail panel (in-place, right column) ---- */
+
+.detail {
+  grid-column: 1 / -1;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detailBack {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-muted);
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.detailBack:hover {
+  color: var(--color-text);
+}
+
+.detailHeader {
+  margin-bottom: 2rem;
+}
+
+.detailMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detailRoleBadge {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.detailTitle {
+  font-family: MyFont;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.detailHook {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-muted);
+  border-left: 2px solid var(--color-border-strong);
+  padding-left: 1rem;
+}
+
+.detailMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.detailMetaItem label {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.detailMetaItem span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.detailSection {
+  margin-bottom: 2rem;
+}
+
+.detailSectionLabel {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.detailBody {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--color-muted);
+}
+
+.detailBullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.detailBullets li {
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.7;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.detailBullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-border-strong);
+  font-size: 11px;
+}
+
+.detailBullets li strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.detailScreens {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1.5rem 0.25rem;
+  justify-items: center;
+}
+
+.detailScreen {
+  width: 150px;
+  height: 270px;
+  border-radius: 20px;
+  border: 0.5px solid var(--color-border);
+  background: var(--color-bg);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.detailScreen:hover {
+  transform: scale(1.05) translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.detailScreenImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.detailHint {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+
+.lightboxContent {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 24px;
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .detailTitle {
+    font-size: 26px;
+  }
+
+  .detailMetaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailScreen {
+    width: 120px;
+    height: 220px;
+  }
+
+  .detailScreens {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.busStop {
+  transform: scaleY(-1);
+  width: 150px;
+  height: auto;
+  aspect-ratio: 1.61;
+}

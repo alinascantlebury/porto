@@ -89,7 +89,15 @@ export const projects = [
 
       {
         label: 'screens',
-        screens: [welcomeImg, signupImg, detailsImg, howImg, consentImg, nalaHome1, nalaHome]
+        screens: [
+          { image: welcomeImg, title: 'Welcome', description: 'Introduces Nala as a digital health coach that helps USF students build lifestyle and behavior change skills over a 4-week program, setting expectations before signup.' },
+          { image: signupImg, title: 'Sign up', description: 'Firebase authentication flow supporting email, Google, and Apple sign-in.' },
+          { image: detailsImg, title: 'Your details', description: 'Get-to-know-you questions covering student status, health rating, readiness for behavior change, weekly busyness, and free time, used to personalize the coaching approach from session one.' },
+          { image: howImg, title: 'How it works', description: 'Walks users through the 4-session structure: goal-setting in session 1, progress check-ins and problem-solving in sessions 2 and 3, and reflection with a long-term plan in session 4.' },
+          { image: consentImg, title: 'Consent', description: 'Confidentiality screen added after collaborating with Kelly and her team, explaining that chat data is combined and de-identified in any reporting.' },
+          { image: nalaHome1, title: 'Home', description: 'Main dashboard showing current session status, with later sessions unlocking as prior ones are completed.' },
+          { image: nalaHome, title: 'Home, expanded', description: 'Expanded home view showing session history and progress across the 4-week program.' },
+        ]
       },
 
       {
@@ -177,7 +185,12 @@ export const projects = [
 
       {
         label: 'screens',
-        screens: [swipe_1, swipe_2, swipe_3, libraryImg]
+        screens: [
+          { image: swipe_1, title: 'Swipe, start', description: 'Card stack of SF places with dating-profile-style bios and photos, swipe left to pass and right to save, in a brick red and warm cream design system.' },
+          { image: swipe_2, title: 'Swipe, mid-deck', description: 'Continued swiping through the deck, mixing well-known spots with local picks like farmers markets and neighborhood hidden gems rather than just tourist attractions.' },
+          { image: swipe_3, title: 'Swipe, filtered', description: 'Deck filtered by category (Food, Things to do, Museums) so users can narrow the swipe stack to what they are in the mood for.' },
+          { image: libraryImg, title: 'Saved library', description: 'Saved places collected from swiping right, giving users a running list to revisit and plan around.' },
+        ]
       },
 
       {

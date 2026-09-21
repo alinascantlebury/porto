@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './CaseStudy.module.css';
 import { projects } from '../data';
+import ScrollTour from './ScrollTour';
 
 export default function CaseStudy({ projectId, setPage }) {
   const project = projects.find((p) => p.id === projectId);
@@ -63,20 +64,33 @@ export default function CaseStudy({ projectId, setPage }) {
           )}
 
           {section.screens && (
-            <>
-              <p className={styles.hint}>click to enlarge</p>
-              <div className={styles.screens}>
-                {section.screens.map((src, n) => (
-                  <div
-                    key={n}
-                    className={styles.screen}
-                    onClick={() => setLightbox({ type: 'image', src })}
-                  >
-                    <img src={src} alt={`screen ${n + 1}`} className={styles.screenImg} />
-                  </div>
-                ))}
-              </div>
-            </>
+            Array.isArray(section.screens) && typeof section.screens[0] === 'object' ? (
+              // new format: [{ image, title, description }] -> scroll-driven tour
+              <ScrollTour
+                stops={section.screens.map((s) => ({
+                  image: s.image || s.src,
+                  title: s.title,
+                  description: s.description,
+                }))}
+                onExpand={(src) => setLightbox({ type: 'image', src })}
+              />
+            ) : (
+              // old format: plain array of image strings -> click-to-enlarge grid
+              <>
+                <p className={styles.hint}>click to enlarge</p>
+                <div className={styles.screens}>
+                  {section.screens.map((src, n) => (
+                    <div
+                      key={n}
+                      className={styles.screen}
+                      onClick={() => setLightbox({ type: 'image', src })}
+                    >
+                      <img src={src} alt={`screen ${n + 1}`} className={styles.screenImg} />
+                    </div>
+                  ))}
+                </div>
+              </>
+            )
           )}
 
           {section.video && (

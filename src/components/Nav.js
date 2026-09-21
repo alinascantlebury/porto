@@ -1,27 +1,14 @@
 import React from 'react';
 import styles from './Nav.module.css';
 
-export default function Nav({ page, setPage }) {
+export default function Nav() {
   return (
     <nav className={styles.nav}>
       <span className={styles.name}>Alina Scantlebury</span>
       <ul className={styles.links}>
-        <li>
-          <button
-            className={page === 'home' ? styles.active : ''}
-            onClick={() => setPage('home')}
-          >
-            work
-          </button>
-        </li>
-        <li>
-          <button
-            className={page === 'about' ? styles.active : ''}
-            onClick={() => setPage('about')}
-          >
-            about
-          </button>
-        </li>
+        <li><a href="#work">work</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="#play">play</a></li>
       </ul>
     </nav>
   );
