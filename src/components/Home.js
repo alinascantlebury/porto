@@ -7,7 +7,14 @@ import ScrollTour from './ScrollTour';
 import meImg from '../images/me.png';
 import busStopImg from '../images/bus-stop.png';
 
+
 export default function Home() {
+  const bios = [
+    'I design and build apps and data visualizations, from Figma to shipped code.',
+    'A detail-oriented product designer who loves creating simple designs, driving outcomes and shaping strategies.',
+    'I am a creative thinker, a problem solver, and thrive in collaborative environments.',
+  ];
+  const [bioIndex, setBioIndex] = useState(0);
   const [active, setActive] = useState(null);
   const [lightbox, setLightbox] = useState(null); // { type: 'image' | 'video', src }
 
@@ -35,9 +42,15 @@ export default function Home() {
           <h1 className={styles.title}> Alina Scantlebury </h1>
 
           <p className={styles.role}>cs + ux/ui · university of san francisco · 2026</p>
-          <p className={styles.bio}>
-            : a product-minded engineer who builds consumer apps with a strong focus on user behavior, personalization, and conversion.
-          </p>
+          <div className={styles.bioWrap}>
+  <p
+    key={bioIndex}
+    className={`${styles.bio} ${styles.bioSlide}`}
+    onAnimationEnd={() => setBioIndex((i) => (i + 1) % bios.length)}
+  >
+    {bios[bioIndex]}
+  </p>
+</div>
         </div>
 
         <div className={styles.bottom}>
