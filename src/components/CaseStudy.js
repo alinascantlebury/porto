@@ -78,11 +78,11 @@ export default function CaseStudy({ projectId, setPage }) {
               // old format: plain array of image strings -> click-to-enlarge grid
               <>
                 <p className={styles.hint}>click to enlarge</p>
-                <div className={styles.screens}>
+                <div className={`${styles.screens} ${section.wide ? styles.screensWide : ''}`}>
                   {section.screens.map((src, n) => (
                     <div
                       key={n}
-                      className={styles.screen}
+                      className={`${styles.screen} ${section.wide ? styles.screenWide : ''}`}
                       onClick={() => setLightbox({ type: 'image', src })}
                     >
                       <img src={src} alt={`screen ${n + 1}`} className={styles.screenImg} />
@@ -96,9 +96,9 @@ export default function CaseStudy({ projectId, setPage }) {
           {section.video && (
             <>
               <p className={styles.hint}>click to enlarge</p>
-              <div className={styles.screens}>
+              <div className={`${styles.screens} ${section.wide ? styles.screensWide : ''}`}>
                 <div
-                  className={styles.screen}
+                  className={`${styles.screen} ${section.wide ? styles.screenWide : ''}`}
                   onClick={() => setLightbox({ type: 'video', src: section.video })}
                 >
                   <video

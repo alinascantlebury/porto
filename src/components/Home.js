@@ -120,19 +120,6 @@ export default function Home() {
             </a>
           </div>
 
-          <div className={styles.research}>
-            <p className={styles.researchLabel}>mini games</p>
-            <a
-              href="https://alinascantlebury.github.io/mini-games"
-              target="_blank"
-              rel="noreferrer"
-              className={styles.researchLink}
-            >
-              <span className={styles.researchTitle}>Play my mini games</span>
-              <span className={styles.researchMeta}>Qless and more — battle my high scores</span>
-              <span className={styles.researchArrow}>↗</span>
-            </a>
-          </div>
         </div>
 
         {/* ---- about ---- */}
@@ -158,17 +145,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ---- play ---- */}
-        <section id="play" className={styles.pageSection}>
-       <a
-            href="https://alinascantlebury.github.io/mini-games"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.playCard}
-          >
-            Play my mini games ↗
-          </a>
-        </section>
+       
       </div>
 
       {activeProject && (

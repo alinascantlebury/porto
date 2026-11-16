@@ -16,7 +16,12 @@ import nalaHome from './images/home.jpeg';
 import commonsVideo1 from './images/one.mp4';
 import commonsVideo2 from './images/two.mp4';
 import commonsImg from './images/commons.png';
+
+import ebAiImg from './images/Vector.png';
+import ebTestImg from './images/test.png';
+import ebVideo from './images/ebay.qt';
 export const projects = [
+
   
   {
     id: 'nala',
@@ -263,7 +268,126 @@ export const projects = [
         video: commonsVideo2
       }
     ]
-  },   
+  },
+  {
+    id: 'ebay-ai-navigation',
+    title: 'E.B., AI Navigation for eBay',
+    meta: 'University of San Francisco — 2025',
+    desc: 'A research study on eBay\'s navigation that led to E.B., an AI assistant that handles search and filters so shoppers find products faster.',
+    image: ebAiImg,
+    tags: ['UX Research', 'Concept Testing', 'AI'],
+
+    role: 'UX Research · Usability Testing',
+    timeline: '2025',
+    team: '4 designers',
+
+    hook: 'Shoppers know what they want. eBay\'s navigation makes them work too hard to find it.',
+
+    sections: [
+      {
+        label: 'overview',
+        content:
+          'A UI/UX course project evaluating how easily people navigate eBay\'s website and app. We studied the current experience through a journey map, usability tests, and a survey, then designed and concept tested E.B., an AI chat assistant that turns plain requests into filtered search results.'
+      },
+      {
+        label: 'problem',
+        content:
+          'Users found eBay\'s interface cluttered and hard to navigate. Filters behaved differently on phone and desktop, and features like Brand Outlet were easy to miss. As frustration grew, users also became wary of what the site was showing them and why.'
+      },
+      {
+        label: 'past studies',
+        bullets: [
+          {
+            bold: 'Journey map: ',
+            text: 'Traced users\' steps, feelings, and pain points while shopping on eBay.'
+          },
+          {
+            bold: 'Usability testing: ',
+            text: '5 participants, ages 18 to 21, in person. Each spent 5 minutes exploring the homepage while thinking aloud, then searched for a used LG TV under $1,000 in good condition, verified by eBay, first on desktop and then on the phone app.'
+          },
+          {
+            bold: 'Survey: ',
+            text: 'Asked about shopping habits, device preference, which sites people shop on, and how they rated navigating eBay.'
+          }
+        ],
+        callout: 'A less cluttered screen and the same filter section on desktop as on mobile would improve the experience the most.',
+        screens: [ebTestImg],
+        wide: true
+      },
+      {
+        label: 'concept: e.b.',
+        content:
+          'We designed E.B., an AI chatbot prototype, and benchmarked it against how Facebook Marketplace, Amazon, and Shopify (Shopify Magic) use AI in shopping. Interviews asked how likely participants were to use an AI assistant, what they would want it to do, whether they would rather type or speak, and what would make them stop using it.',
+        bullets: [
+          { bold: 'Plain commands: ', text: 'Takes item, price range, and shipping in natural language.' },
+          { bold: 'Auto filters: ', text: 'Applies eBay\'s filters for the user.' },
+          { bold: 'Rich results: ', text: 'Returns links and images for each product request.' },
+          { bold: 'Follow-ups: ', text: 'Asks clarifying questions and makes recommendations.' }
+        ],
+        screens: [ebAiImg],
+        wide: true
+      },
+      {
+        label: 'prototype',
+        video: ebVideo,
+        wide: true
+      },
+      {
+        label: 'findings',
+        bullets: [
+          {
+            bold: 'Simple commands: ',
+            text: 'Users wanted to type short prompts like "pokemon card" and have E.B. ask which edition they meant.'
+          },
+          {
+            bold: 'Text over voice: ',
+            text: 'Participants preferred typing to speaking.'
+          },
+          {
+            bold: 'Image search: ',
+            text: 'Users wanted to upload a photo and find similar products.'
+          },
+          {
+            bold: 'Trust: ',
+            text: 'Participants were cautious about AI seeing personal information, and some worried it might hide listings or push paid products. Comfort ranged widely: one only used AI for research when stuck, one saw it as a toy, and one already relied on Alexa for shopping lists.'
+          }
+        ]
+      },
+      {
+        label: 'recommendations',
+        bullets: [
+          {
+            bold: 'Transparency: ',
+            text: 'Open each chat with a short note that results are ranked by relevance and seller trust, not paid placement.'
+          },
+          {
+            bold: 'Short, scannable answers: ',
+            text: 'Lead with price, condition, and shipping, with an option to expand.'
+          },
+          {
+            bold: 'Smart follow-ups: ',
+            text: 'Ask clarifying questions only when a search is too broad, with tap-to-answer buttons like [New] [Used] [Either].'
+          },
+          {
+            bold: 'Quick actions: ',
+            text: 'One-click buttons for common tasks like tracking an order or starting a return.'
+          },
+          {
+            bold: 'User control: ',
+            text: 'Let users switch between best matches and all listings.'
+          },
+          {
+            bold: 'Image search: ',
+            text: 'Combine an upload with text, like "find this jacket in blue," and allow in-app camera scanning.'
+          },
+          {
+            bold: 'Privacy: ',
+            text: 'Limit personal features like order tracking and location to logged-in users.'
+          }
+        ]
+      }
+    ]
+  },
   {
     id: 'flock-by-block',
     title: 'Flock by Block',

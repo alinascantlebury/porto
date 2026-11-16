@@ -282,8 +282,32 @@
   cursor: default;
 }
 
+/* wide layout for landscape photos and videos: set `wide: true` on a section */
+.screensWide {
+  grid-template-columns: 1fr;
+  padding: 1rem 0;
+}
+
+.screenWide {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.screenWide:hover {
+  transform: translateY(-4px);
+}
+
+.screenWide .screenImg {
+  display: block;
+  height: auto;
+  max-height: 480px;
+}
+
 @media (max-width: 600px) {
   .title { font-size: 30px; }
   .metaGrid { grid-template-columns: 1fr 1fr; }
   .screens { grid-template-columns: repeat(2, 1fr); }
+  .screensWide { grid-template-columns: 1fr; }
 }
